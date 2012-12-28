@@ -1,41 +1,53 @@
 package de.thomaslaemmlein.counter;
 
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.widget.RelativeLayout;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class CounterView extends RelativeLayout {
-	
+public class CounterView extends LinearLayout {
 	TextView m_CounterTextView;
 	
 	private int m_CurrentNumber;
 	
 	private int m_MaximalNumber = 99;
-	
+
+	public CounterView(Context context) {
+		super(context);
+		init();
+	}
+
 	public CounterView(Context context, AttributeSet attr) 
 	{
 		super(context, attr);
+		init();
+	}
+	
+	private void init()
+	{
+		Log.d("CounterView", "init");
+		
+		LayoutInflater inflater = LayoutInflater.from(getContext());
+		View root = inflater.inflate(R.layout.counter_view, this, false);
 		
 		m_CurrentNumber = 0;
 		
-		Log.d("CounterView", "Constructor");
-		
-	    m_CounterTextView = (TextView)findViewById(R.id.counterTextView);
+	    m_CounterTextView = (TextView)root.findViewById(R.id.counterTextView);
 	    
 	    m_CounterTextView.setText( Integer.toString(m_CurrentNumber));
+	    
+	    addView(root);
 	}
 		
 	@Override
 	 public boolean onTouchEvent(MotionEvent event) {
-	  // TODO Auto-generated method stub
 	    return gestureDetector.onTouchEvent(event);
 	 }
 	
