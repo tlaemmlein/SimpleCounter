@@ -19,7 +19,5 @@
         android:text="0"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="250sp" />
-    
-    <de.thomaslaemmlein.counter.counter_view
 
 </RelativeLayout>
