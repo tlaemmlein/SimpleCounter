@@ -11,6 +11,6 @@
         android:includeFontPadding="false"
         android:text="0"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="250sp" />
+        android:textSize="220sp" />
 
 </RelativeLayout>

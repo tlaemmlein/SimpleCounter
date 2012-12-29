@@ -48,7 +48,9 @@ public class CounterView extends LinearLayout {
 		
 	@Override
 	 public boolean onTouchEvent(MotionEvent event) {
-	    return gestureDetector.onTouchEvent(event);
+		Log.d("CounterView", "onTouchEvent");
+		gestureDetector.onTouchEvent(event);
+	    return true;
 	 }
 	
 	SimpleOnGestureListener simpleOnGestureListener
